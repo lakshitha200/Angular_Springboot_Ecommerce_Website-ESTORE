@@ -1,0 +1,25 @@
+.container{
+    min-height: 53vh;
+}
+
+.markRead:hover{
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.card{
+    width: 100%;
+}
+.card:hover{
+    border: 1px solid orangered;
+    transform: scale(1.01);
+}
+.card-body{
+    padding: 7px 15px !important;
+}
+
+.messageList{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}

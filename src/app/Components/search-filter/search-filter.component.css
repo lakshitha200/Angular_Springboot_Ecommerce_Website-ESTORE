@@ -1,0 +1,68 @@
+.list{
+    display: flex;
+    gap: 5px;
+
+}
+.item{
+    flex-grow: 1;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.item p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 30px;
+
+  
+}
+
+.overflow.overflow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+a:hover > .overflow{
+    background-color: black;
+   
+}
+a:hover > p{
+    color: #ffd000;
+}
+
+
+@media screen and (max-width:991px) {
+    .item p{
+        font-size: 25px;
+    
+      
+    }
+}
+@media screen and (max-width:767px) {
+    .item p{
+        font-size: 20px;
+    }
+
+    
+}
+@media screen and (max-width:575px) {
+    .item p{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width:400px) {
+    .item p{
+        font-size: 12px;
+    }
+}

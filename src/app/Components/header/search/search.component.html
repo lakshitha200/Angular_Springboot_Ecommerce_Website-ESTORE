@@ -1,0 +1,26 @@
+<form (ngSubmit)="onSubmit()" class="d-flex my-3 px-2" role="search">
+    <div class="dropdown">
+      <!-- Categories btn -->
+      <button class="btn btn-secondary" type="button" matTooltip="Categories"
+        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <span>Categories</span> <i class="fa-solid fa-list"></i>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Mobile Phones</a></li>
+        <li><a class="dropdown-item" href="#">Tablet</a></li>
+        <li><a class="dropdown-item" href="#">Laptops</a></li>
+        <li><a class="dropdown-item" href="#">Watches</a></li>
+        <li><a class="dropdown-item" href="#">TVs</a></li>
+      </ul>
+    </div>
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <a routerLink="../search" class="btn btn-outline-warning" matTooltip="Search"
+      type="submit" [(ngModel)]="searchTearm">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+  </form> 
+
+
+
+
+

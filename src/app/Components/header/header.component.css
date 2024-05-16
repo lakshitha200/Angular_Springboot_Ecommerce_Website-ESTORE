@@ -1,0 +1,54 @@
+
+.navbar{
+    background: linear-gradient(90deg, rgba(0,121,204,1) 0%, rgba(90,8,235,1) 73%);
+}
+.navbar-brand {
+    color: white;
+}
+.navbar-brand span{
+    font-weight: 600;
+    background-color: #ffd000;
+    color: rgba(0,121,204,1);
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+.navbar-brand:hover{
+    color: white;
+}
+
+a{
+    color: #fff;
+}
+
+.dropdown-menu{
+    margin-left: -110px;
+    z-index: 100;
+}
+.m1{
+    margin-left: -90px;
+    z-index: 100;
+}
+.dropdown-item:hover{
+    background-color: #5729ce  ;
+    color: #fff !important;
+}
+
+.profile-box{
+    cursor: pointer;
+}
+
+.profileImg{
+    width: 30px;
+    border: 2px solid #ffffff  ;
+    border-radius: 50%;
+}
+
+a i{
+    font-size: 20px;
+    margin-top: 5px;
+}
+.badge{
+    font-size: 9px;
+    background-color: red;
+    margin-top: 5px;
+}

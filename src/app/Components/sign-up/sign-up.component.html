@@ -1,0 +1,66 @@
+<!-- Sign In Form -->
+
+<div class="sign-up">
+   
+    <form class="my-4" (ngSubmit)="onSubmit()">
+      <h2 class="text-center">Sign Up</h2>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Enter Name" name="name" [(ngModel)]="customer.name">
+      </div>
+    
+      <div class="form-group" hidden>
+        <label>Number</label>
+        <input type="number" class="form-control" placeholder="Enter Number" name="cusNumber" [(ngModel)]="cusNumber">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="customer.email">
+      </div>
+      <div class="d-flex gap-1">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" placeholder="Enter Username" name="username" [(ngModel)]="customer.username">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Enter Password" name="password" [(ngModel)]="customer.password">
+          </div>
+      </div>
+     
+      <div class="form-group">
+        <label>Image</label>
+        <input type="file" class="form-control" name="img"  [(ngModel)]="customer.img">
+      </div>
+      <div class="d-flex gap-1">
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="number" class="form-control" placeholder="Enter Phone" name="phone"  [(ngModel)]="customer.phone">
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-control" placeholder="Enter Location" name="location"  [(ngModel)]="customer.location">
+          </div>
+      </div>
+
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" value="agree" id="flexCheckDefault" required>
+        <label class="form-check-label " for="flexCheckDefault">
+          I agree all statements in <a href="#">Terms of service</a>
+        </label>
+      </div>
+      
+
+      <button type="submit" class="btn btn-warning w-100 btn-sm mt-3 mb-2">Sign Up</button>
+      <p class="text-center">
+        <small>Already have an account? <a routerLink="/home/sign-in" style="color: #5729ce;">Sign In</a></small>
+        </p>
+      
+    </form>
+    <div class="img">
+      
+    </div>
+  </div>
+
+  
+

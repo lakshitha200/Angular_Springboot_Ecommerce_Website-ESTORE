@@ -1,0 +1,36 @@
+
+<div class="container my-4">
+    <h1 class="text-center">Cart <i class="fa-solid fa-cart-shopping"></i></h1>
+
+    <div class="product-list mt-4">
+        <ng-container *ngFor="let product of productList">
+            <ng-container *ngFor="let cart of cartList">
+                <div class="card" *ngIf="cart.productId == product.id">
+        
+                    <div class="overflow">
+                        <a (click)="deleteCart(cart.id)" class="delete"><i class="fa-solid fa-trash"></i></a>
+                        <div class="buy-details">
+                            <a href="" class=" btn btn-dark btn-sm w-100"><i class="fa-regular fa-heart"></i></a>
+                            <a [routerLink]="'/product-details/'+cart.productId" class=" btn btn-warning btn-sm w-100">Buy</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offer bg-warning" *ngIf="product.discountAvailable">{{product.discount}}%</div>
+                    <img src="{{product.images[0]}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h6 class="card-title">{{product.brand}} {{product.model}}</h6>
+                    <div class="card-text">
+                        <p *ngIf="product.discountAvailable" style="color: rgb(255, 102, 0);font-weight: 500;">
+                            Rs. {{ product.price-(product.price*product.discount/100)}}
+                        </p>
+                        <p [ngClass]="{'strike': product.discountAvailable}" style="font-weight: 500;"> Rs.{{product.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+        
+    </div>
+</div>
+
+

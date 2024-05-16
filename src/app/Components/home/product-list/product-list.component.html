@@ -1,0 +1,101 @@
+<h1 class="px-2 my-4" style="font-weight: 500;">All Products 
+  <span class="categorie bg-info" *ngIf="categorie">{{categorie}} <i class="fa-solid fa-xmark" (click)="close()"></i></span>
+</h1>
+
+    <div class="products mt-4 px-2">
+        <div class="product-list">
+          <ng-container  *ngFor="let product of productList">
+            <ng-container *ngIf="product.type == categorie">
+              <div  class="card">
+
+                <!---------------------------------------- Cart-WIshlist --------------------------------->
+                <div class="wishlist-cart">
+                  <!-- wishlist -->
+                  <div class="wishlist" >
+                    <i *ngIf="!alreadyInWishlist.includes(product.id)" (click)="addtoWishlist(product.id)" 
+                        matTooltip="Add To Wishlist" matTooltipPosition="above" class="fa-regular fa-heart"></i>
+  
+                    <i *ngIf="alreadyInWishlist.includes(product.id)" class="fa-solid fa-heart text-warning" 
+                        matTooltip="Already In Wishlist" matTooltipPosition="above" ></i>
+                  </div>
+  
+                  
+                  <!-- cart -->
+                  <div class="cart">
+                    <i *ngIf="!alreadyInCart.includes(product.id)" class="fa-solid fa-cart-shopping" 
+                    (click)="addtoCart(product.id)"  matTooltip="Add To Cart"></i>
+  
+                    <i *ngIf="alreadyInCart.includes(product.id)" class="fa-solid fa-cart-shopping heart text-warning"
+                    matTooltip="Already In Cart"></i>
+                  </div>
+                </div>
+                <a [routerLink]="'/product-details/'+product.id" class="innerBorder">
+                  <!-- offer -->
+                  <div class="offer bg-warning" *ngIf="product.discountAvailable">{{product.discount}}%</div>
+                  <!-- Images -->
+                  <img src="{{product.images[0]}}" class="card-img-top img1" alt="...">
+                  <img src="{{product.images[1]}}" class="card-img-top img2" alt="...">
+                  <!----------------------- Body--------------------------------------------------- -->
+                  <div class="card-body">
+                    <p class="card-title">{{product.brand}} {{product.model}}</p>
+                    <div class="card-text">
+                      <p *ngIf="product.discountAvailable" style="color: rgb(255, 102, 0);font-weight: 500;">
+                        Rs. {{ product.price-(product.price*product.discount/100)}}
+                      </p>
+                      <p [ngClass]="{'strike': product.discountAvailable}" style="font-weight: 500;"> Rs.{{product.price}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!categorie">
+              <div  class="card">
+
+                <!---------------------------------------- Cart-WIshlist --------------------------------->
+                <div class="wishlist-cart">
+                  <!-- wishlist -->
+                  <div class="wishlist" >
+                    <i *ngIf="!alreadyInWishlist.includes(product.id)" (click)="addtoWishlist(product.id)" 
+                        matTooltip="Add To Wishlist" matTooltipPosition="above" class="fa-regular fa-heart"></i>
+  
+                    <i *ngIf="alreadyInWishlist.includes(product.id)" class="fa-solid fa-heart text-warning" 
+                        matTooltip="Already In Wishlist" matTooltipPosition="above" ></i>
+                  </div>
+  
+                  
+                  <!-- cart -->
+                  <div class="cart">
+                    <i *ngIf="!alreadyInCart.includes(product.id)" class="fa-solid fa-cart-shopping" 
+                    (click)="addtoCart(product.id)"  matTooltip="Add To Cart"></i>
+  
+                    <i *ngIf="alreadyInCart.includes(product.id)" class="fa-solid fa-cart-shopping heart text-warning"
+                    matTooltip="Already In Cart"></i>
+                  </div>
+                </div>
+                <a [routerLink]="'/product-details/'+product.id" class="innerBorder">
+                  <!-- offer -->
+                  <div class="offer bg-warning" *ngIf="product.discountAvailable">{{product.discount}}%</div>
+                  <!-- Images -->
+                  <img src="{{product.images[0]}}" class="card-img-top img1" alt="...">
+                  <img src="{{product.images[1]}}" class="card-img-top img2" alt="...">
+                  <!----------------------- Body--------------------------------------------------- -->
+                  <div class="card-body">
+                    <p class="card-title">{{product.brand}} {{product.model}}</p>
+                    <div class="card-text">
+                      <p *ngIf="product.discountAvailable" style="color: rgb(255, 102, 0);font-weight: 500;">
+                        Rs. {{ product.price-(product.price*product.discount/100)}}
+                      </p>
+                      <p [ngClass]="{'strike': product.discountAvailable}" style="font-weight: 500;"> Rs.{{product.price}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </ng-container>
+          
+            
+          </ng-container>
+            
+            
+        
+        </div>
+    </div>

@@ -1,0 +1,173 @@
+
+<div class="container product-details my-3">
+
+    <!-- Details Box -->
+    <div class="details-box">
+        <div class="carousul">
+            <owl-carousel-o [options]="customOptions1" >
+                <ng-container *ngFor="let image of product.images">
+                    <ng-template carouselSlide let-dotContent="content">
+                        <div class="slider"><img class="pImage" src="{{image}}" alt=""></div>
+                        
+                    </ng-template>  
+    
+                </ng-container>
+
+            </owl-carousel-o>
+        </div>
+   
+        <div class="details">
+            <h1 style="font-weight:500;">{{product.brand}} {{product.model}}</h1>
+            <div class="d-flex gap-2" [ngStyle]="{color:product.discountAvailable ? 'rgb(255, 94, 0)' : 'black'} ">
+                <h3 style="font-weight: 550;">Price :</h3> 
+                <h3 style="font-weight: 550;">Rs.  {{ product.price-(product.price*product.discount/100)}}</h3>
+                <h5 style="font-weight: 500;text-decoration: line-through;" *ngIf="product.discountAvailable" class="mt-1">Rs.{{ product.price}}</h5>
+            </div>
+            <p class="bg-warning w-50 text-center" style="font-weight: 600;"  
+                *ngIf="product.discountAvailable">Discount: {{ product.discount}}%</p>
+            <p style="font-weight: 600;">Stock : {{ product.stock}}</p>
+
+            <div class="buy-cart d-flex gap-3 ">
+                <button class="btn btn-warning btn-sm"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" 
+                    aria-controls="offcanvasRight" matTooltip="Buy">Buy</button>
+                <button class="btn btn-dark btn-sm " matTooltip="Add To Wishlist">WishList <i class="fa-regular fa-heart"></i></button>
+                <button class="btn btn-dark btn-sm" matTooltip="Add To Cart">Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+        </div>
+
+        <div class="specifications">
+            <h3 class="text-center">SPECIFICATION</h3>
+            <ul>
+                <li>Model : <span>{{ product.model}}</span></li>
+                <li>Display : <span>{{ product.display}}</span></li>
+                <li *ngIf="product.technology">Chipset : <span>{{ product.chipset}}</span></li>
+                <li *ngIf="product.processor">Processor : <span>{{ product.processor}}</span></li>
+                <li *ngIf="product.ram">Ram : <span>{{ product.ram}}</span></li>
+                <li *ngIf="product.battery_life">Battery Life : <span>{{ product.battery_life}}</span></li>
+                <li  *ngIf="product.battery">Battery : <span>{{ product.battery}}</span></li>
+                <li *ngIf="product.technology">Technology : <span>{{ product.technology}}</span></li>
+                <li *ngIf="product.graphics">Graphics : <span>{{ product.graphics}}</span></li>
+                <li *ngIf="product.storage">Storage : <span>{{ product.storage}}</span></li>
+                <li>Stock : <span>{{ product.stock}}</span></li>
+                <li *ngIf="product.camera">Camera : <span>{{ product.camera}}</span></li>
+                <li *ngIf="product.screen_size">Screen Size : <span>{{ product.screen_size}}</span></li>
+                <li *ngIf="product.resolution">Resolution : <span>{{ product.resolution}}</span></li>
+                <li *ngIf="product.features">Features : <span>{{ product.features}}</span></li>
+            </ul>
+           
+        </div>
+        
+    </div>
+</div>
+
+
+<!-- Related Products -->
+<!-- <div class="container related-products my-3">
+
+</div> -->
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title" id="offcanvasRightLabel">Buy Now</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="d1 d-flex gap-3">
+        <img src="{{product.images[0]}}" alt="">
+        <div class="item-details">
+            <p>{{product.brand}} {{product.model}}</p>
+            <p style="color: rgb(255, 94, 0);">Rs.{{ product.price-(product.price*product.discount/100)}}</p>
+            <p class="bg-warning w-100 text-center" style="font-size: 14px;" *ngIf="product.discountAvailable">15% Offer</p>
+
+        </div>
+    </div>
+
+    <div class="d2 justify-content-between align-items-center mt-1" #d2>
+        <h4 class="pt-3">Quanity</h4>
+        <div>
+            <button class="btn btn-outline-primary btn-sm">-</button>
+            <span class="mx-2"><b>1</b></span>
+            <button class="btn btn-outline-primary btn-sm">+</button>
+        </div>
+    </div>
+    <div class=" d2 colours justify-content-between align-items-center mt-1" #colours>
+        <h4 class="pt-3">Colours</h4>
+        <div class="colours-box">
+            <button class="btn btn-sm" (click)="chooseColour(colour1)" #colour1></button>
+            <button class="btn btn-sm" (click)="chooseColour(colour2)" #colour2></button>
+            <button class="btn btn-sm" (click)="chooseColour(colour3)" #colour3></button>
+            <button class="btn btn-sm" (click)="chooseColour(colour4)" #colour4></button>
+            <button class="btn btn-sm" (click)="chooseColour(colour5)" #colour5></button>
+        </div>
+    </div>
+    <div class="card-details mt-1" #cardDetails>
+        <h4 class="pt-3">Payment Option</h4>
+        <div class="cardList">
+            <div class="payment-cards" (click)="chooseCard(card1)" #card1>
+                <img src="https://logos-world.net/wp-content/uploads/2020/04/Visa-Symbol-700x394.png" alt="">
+            </div>
+            <div class="payment-cards" (click)="chooseCard(card2)" #card2>
+                <img src="https://www.transparentpng.com/thumb/mastercard/png-mastercard-clipart-file-logo-12.png" alt="">
+            </div>
+            <div class="payment-cards" (click)="chooseCard(card3)" #card3>
+                <img src="https://www.discoverwalks.com/blog/wp-content/uploads/2023/11/paypal_logo2014.svg_.png" alt="">
+            </div>
+            <div class="payment-cards" (click)="chooseCard(card4)" #card4>
+                <img src="https://logos-download.com/wp-content/uploads/2018/09/American_Express_Card_Logo-450x286.png" alt="">
+            </div>
+        </div>
+
+
+        
+    </div>
+    <!-- spinner -->
+    <div class="spinner-box mt-1" #spinnerbox>
+        <div class="spinner" #spinner>
+            <div></div>   
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+          </div>
+
+
+        <div class="main-container" #success>
+            <div class="check-container">
+
+                <div class="check-background">
+                    <svg viewBox="0 0 65 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 25L27.3077 44L58.5 7" stroke="white" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="check-shadow"></div>
+            </div>
+            <h2 class="suc-message">Payment Successful!</h2>
+        </div>
+
+          
+    </div>
+
+    
+
+    
+
+    <div class="d3 mt-1" #d3>
+        <h4 class="mt-3">
+            <small>Total: </small>
+             <span style="color: rgb(255, 94, 0); font-weight: 500;">Rs.  {{ product.price-(product.price*product.discount/100)}}</span>
+        </h4>
+        <div>
+            <button class="btn text-white btn-sm" style="background-color: rgb(255, 102, 0);"
+            (click)="createOrder()">Place Order</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+

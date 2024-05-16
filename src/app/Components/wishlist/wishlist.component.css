@@ -1,0 +1,121 @@
+.container{
+    min-height: 70vh;
+}
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+}
+.product-list .card{
+    width: 16%;
+    position: relative;
+}
+a{
+    text-decoration: none;
+}
+.product-list .card:hover{
+    border: 1px solid #7e35fd;
+    transform: scale(1.05);
+
+}
+.product-list .card:hover > .overflow{
+    display: block;
+}
+.offer{
+    position: absolute;
+    padding:3px 5px;
+    font-size: 12px;
+    color: #000;
+    font-weight: 500;
+   
+}
+
+.overflow{
+    position: absolute;
+    background-image: linear-gradient(180deg, rgba(251, 249, 255, 0.9),rgba(0,121,204,0.6), rgba(90,8,235,1) );
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 100;
+}
+.delete{
+    position: absolute;
+    right: 0;
+    padding: 3px 5px;
+    background-color: red;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+.delete:hover{
+    background-color: rgb(187, 3, 3);
+}
+.buy-details{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 8px;
+}
+.buy-details a:hover{
+    transform: scale(1.05);
+}
+
+
+
+.strike{
+    font-size: 13px;
+    text-decoration: line-through;
+    margin-top: -10px;
+}
+.products p{
+    line-height: 1.2rem;
+
+}
+.card-title{
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+@media screen and (max-width:1199px) {
+    .product-list .card{
+        width: 15.5%;
+        position: relative;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .product-list .card{
+        width: 24%;
+        position: relative;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .product-list .card{
+        width: 32%;
+        position: relative;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .product-list .card{
+        width: 30%;
+      
+
+    }
+    .container{
+        margin-left: 3px;
+    }
+}
+
+@media screen and (max-width:460px) {
+    .product-list .card{
+        width: 47%;
+
+    }
+}

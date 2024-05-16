@@ -1,0 +1,71 @@
+
+.profile{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    padding: 20px;
+}
+.profile img{
+    width:300px;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@media screen and (max-width:767px) {
+    .profile{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+
+.edit-delete{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+.edit-delete button{
+    width: 100%;
+}
+
+.edit{
+    background: linear-gradient(130deg, rgba(0,121,204,1) 0%, rgba(90,8,235,1) 73%);
+    color: #fff;
+}
+
+.delete{
+    background-color: red;
+    color: #fff;
+}
+.save{
+    background-color: green;
+    color: #fff;
+}
+.Close{
+    background-color: #000;
+    color: #fff;
+
+    position: absolute;
+    right: 5px;
+}
+
+button:hover{
+    transform: scale(1.03);
+}
+
+.d2{
+    display: none;
+    position: relative;
+    padding: 5px;
+}
+
+input{
+    height: 27px;
+    margin-bottom: 5px;
+}

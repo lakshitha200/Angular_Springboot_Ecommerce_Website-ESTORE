@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-sm bg-body-tertiar px-2 py-2">
+    <div class="container-fluid d-flex justify-content-between">
+      <a class="navbar-brand" [routerLink]="'home'"><span>E</span> Store</a>
+
+      <div class="d-flex align-items-center gap-4">
+        <!-- ----------------------------cart------------------------------------->
+        <a [routerLink]="'cart'" class="position-relative" matTooltip="Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            {{cartList.length}}
+          </span>
+        </a>
+        <!------------------------------ wishlist ---------------------------------->
+        <a [routerLink]="'wishlist'" class="position-relative" matTooltip="Wishlist">
+          <i class="fa-solid fa-heart"></i>
+          <span class="position-absolute top-2 start-100 translate-middle badge rounded-pill">
+            {{wishlistList.length}}
+          </span>
+        </a>
+        <!----------------------------- notifications ------------------------------->
+        <a [routerLink]="'notifications'" class="position-relative"  matTooltip="Notifications">
+          <i class="fa-solid fa-bell"></i>
+          <span class="position-absolute top-2 start-100 translate-middle badge rounded-pill">
+            1
+          </span>
+        </a>
+
+        <!-- Profile -->
+        <div class="dropdown">
+          <button class="btn btn-warning btn-sm" type="button" id="dropdownMenuButton1" matTooltip="SignIn"
+          data-bs-toggle="dropdown" aria-expanded="false"  *ngIf="activeCustomer==null">
+            <span>Sign In</span> 
+          </button>
+          <span class="profile-box" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+           *ngIf="activeCustomer!=null" >
+            <img *ngIf="activeCustomer.username == 'lakshitha123'" class="profileImg" src="../../../assets/img/Profile/lakshitha.png" alt="" matTooltip="Profile">
+            <img *ngIf="activeCustomer.username != 'lakshitha123'" class="profileImg" src="../../../assets/img/Profile/user.png" alt="" matTooltip="Profile">
+          </span>
+          <ul class="dropdown-menu m1" aria-labelledby="dropdownMenuButton1" *ngIf="activeCustomer==null">
+            <li><a class="dropdown-item text-dark" [routerLink]="'home/sign-in'">Sign In</a></li>
+            <li><a class="dropdown-item text-dark" [routerLink]="'home/sign-up'">Sign Up</a></li>
+          </ul>
+
+          <ul class="dropdown-menu m2" aria-labelledby="dropdownMenuButton1" *ngIf="activeCustomer!=null">
+            <li><a class="dropdown-item text-dark" [routerLink]="'profile/'+activeCustomer.username">Your Profile</a></li>
+            <li><a class="dropdown-item text-dark" routerLink="notifications">Notifications</a></li>
+            <li><a class="dropdown-item text-dark" routerLink="wishlist">Wishlist</a></li>
+            <li><a class="dropdown-item text-dark" routerLink="cart">Cart</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item text-dark" (click)="logout()" style="cursor: pointer;">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+  <div class="container-fluid py-1">
+    <div class="container">
+      <app-search></app-search>
+    </div>
+  </div>
+
+  
